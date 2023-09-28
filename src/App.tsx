@@ -7,6 +7,8 @@ import NoMatch from './components/NoMatch.page';
 import RQSuperheros from './components/RQSuperheros.page';
 import Superheros from './components/Superheros.page';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools  } from "react-query/devtools";
+
 
 function App() {
 
@@ -22,6 +24,9 @@ function App() {
             <Route path="*" element={<NoMatch />} />
           </Route>
         </Routes>
+
+      <ReactQueryDevtools position='bottom-right'/>
+
       </QueryClientProvider>
     
   );

@@ -9,11 +9,17 @@ const fetchSuperHeroes = ()=> {
 
 const RQSuperheros = () => {
 
-  const {isLoading, data} = useQuery(SUPER_HEROS, fetchSuperHeroes)
+  const {isLoading, data, isError, error} = useQuery(SUPER_HEROS, fetchSuperHeroes)
 
+  
 
   if(isLoading) {
     return <h3>Loading...</h3>
+  }
+
+  if(isError) {
+    console.log('error:',error)
+    return <h3>{error?.message}</h3>
   }
 
   return (
@@ -28,6 +34,7 @@ const RQSuperheros = () => {
 
         }
       </ul>
+
     </div>
   );
 };
