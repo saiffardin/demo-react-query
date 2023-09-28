@@ -9,9 +9,15 @@ const fetchSuperHeroes = ()=> {
 
 const RQSuperheros = () => {
 
-  const {isLoading, data, isError, error} = useQuery(SUPER_HEROS, fetchSuperHeroes)
+  const {isLoading, data, isError, error, isFetching} = useQuery(SUPER_HEROS, fetchSuperHeroes, {
+    // cacheTime: 5000, // default time is 5 mins
+    // staleTime: 30000, // default value is 0 seconds, 
+    // refetchOnMount: false // default true 
+    // refetchOnWindowFocus:true  // default is true
+    // refetchInterval : 2000 // default is false || calls api after this amount of time => real time data shown
+  })
 
-  
+  console.log({isLoading,isFetching  })
 
   if(isLoading) {
     return <h3>Loading...</h3>
